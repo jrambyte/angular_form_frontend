@@ -15,6 +15,6 @@ export const serverRoutes: ServerRoute[] = [
   },
   {
     path: '**',
-    renderMode: RenderMode.AppShell  // Tutte le altre rotte usano AppShell, non Prerender
+    renderMode: RenderMode.Client  // Tutte le altre rotte usano AppShell, non Prerender
   }
 ];
