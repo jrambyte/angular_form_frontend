@@ -7,7 +7,8 @@ export const routes: Routes = [
   {path:'', redirectTo: 'home',  pathMatch: 'full'},
   {path: 'home', component: HomepageComponent},
   {path: 'form', component: FormComponent},
-  {path: 'grid', component: RegistrazioniComponent}
+  {path: '**', redirectTo: 'home'}  // Qualsiasi rotta sconosciuta -> home
+  //{path: 'grid', component: RegistrazioniComponent}
 ];
 
 
