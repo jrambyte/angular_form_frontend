@@ -1,0 +1,105 @@
+<div class="container">
+  <h2 class="titolo">Form di Registrazione</h2>
+
+  <div class="dx-card">
+    <dx-form
+      #formReg
+      id="form"
+      [formData]="formData"
+      [colCount]="2"
+      [showColonAfterLabel]="true"
+      [visible]="true" 
+      (onFieldDataChanged)="onFieldDataChanged($event)">
+
+      <dxi-item itemType="group" caption="Informazioni Personali">
+        
+        <!-- Campo Nome -->
+        <dxi-item dataField="nome" [editorOptions]="{ placeholder: 'Inserisci nome' }">
+          <dxi-validation-rule type="required" message="Il campo nome è obbligatorio"></dxi-validation-rule>
+        </dxi-item>
+
+        <!-- Campo Cognome -->
+        <dxi-item dataField="cognome" [editorOptions]="{ placeholder: 'Inserisci cognome' }">
+          <dxi-validation-rule type="required" message="Il campo cognome è obbligatorio"></dxi-validation-rule>
+        </dxi-item>
+
+        <!-- Campo Email -->
+        <dxi-item dataField="email" editorType="dxTextBox" [editorOptions]="{ mode: 'email', placeholder: 'Inserisci email' }">
+          <dxi-validation-rule type="required" message="Il campo email è obbligatorio"></dxi-validation-rule>
+        </dxi-item>
+
+        <!-- Campo Codice Fiscale -->
+        <dxi-item dataField="codiceFiscale" [editorOptions]="{ placeholder: 'Inserisci Codice Fiscale' }">
+          <dxi-validation-rule type="pattern" [pattern]="codiceFiscalePattern" [message]="codiceFiscaleErrorMessage"></dxi-validation-rule>
+          <dxi-validation-rule type="required" message="Il campo CF è obbligatorio"></dxi-validation-rule>
+        </dxi-item>
+        
+        <!-- Campo Comune Residenza -->
+        <dxi-item 
+          dataField="comuneResidenza"
+          editorType="dxSelectBox"
+          [editorOptions]="editorOptionsComune">
+          <dxi-validation-rule type="required" message="Il campo Residenza è obbligatorio"></dxi-validation-rule>
+        </dxi-item>
+
+        <!-- Campo CAP -->
+        <dxi-item 
+          dataField="cap"
+          editorType="dxSelectBox"
+          [editorOptions]="{
+            dataSource: capList,
+            displayExpr: 'cap',
+            valueExpr: 'cap',
+            placeholder: 'Seleziona CAP...',
+            searchEnabled: false
+          }">
+        </dxi-item>
+        
+        <!-- Campo Sesso -->
+        <dxi-item dataField="sesso" editorType="dxSelectBox" [editorOptions]="{ items: sessoItems, placeholder: 'Seleziona' }">
+        </dxi-item>
+        
+        <!-- Campo Password -->
+        <dxi-item dataField="password" editorType="dxTextBox" [editorOptions]="{ 
+          mode: 'password',
+          placeholder: 'Scegli password'
+        }">
+          <dxi-validation-rule type="required" message="Il campo password è obbligatorio"></dxi-validation-rule>
+          <dxi-validation-rule 
+            type="custom" 
+            [validationCallback]="validatePassword" 
+            message="La password non soddisfa i requisiti di sicurezza">
+          </dxi-validation-rule>
+        </dxi-item>
+
+        <!-- Campo Conferma Password -->
+        <dxi-item dataField="passwordConfirm" label="Conferma password" editorType="dxTextBox" [editorOptions]="{ 
+          mode: 'password',
+          placeholder: 'Conferma password'
+        }">
+          <dxi-validation-rule type="required" message="Il campo è obbligatorio"></dxi-validation-rule>
+          <dxi-validation-rule 
+            type="compare" 
+            [comparisonTarget]="getPasswordValue" 
+            message="Le password non corrispondono">
+          </dxi-validation-rule>
+        </dxi-item>
+
+      </dxi-item>
+
+    </dx-form>
+    
+    <!-- Footer con pulsante di invio -->
+    <div class="card-footer">
+      <dx-button
+        [text]="'Invia'"
+        [type]="'success'"
+        [useSubmitBehavior]="true"
+        [width]="120"
+        (onClick)="saveFormData($event)">
+      </dx-button>
+    </div>
+
+  </div>
+
+</div>

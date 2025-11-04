@@ -1,0 +1,98 @@
+/* Container principale */
+.registrazioni-container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Titolo */
+.registrazioni-container h2 {
+  color: #333333;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+/* Stili per DevExtreme DataGrid */
+.dx-datagrid {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+/* Header della tabella */
+.dx-datagrid-headers {
+  background-color: #f8f9fa;
+  font-weight: 600;
+}
+
+.dx-datagrid-header-panel {
+  background-color: #f8f9fa;
+  border-bottom: 2px solid #dee2e6;
+}
+
+/* Celle della tabella */
+.dx-datagrid-rowsview .dx-row {
+  border-bottom: 1px solid #e9ecef;
+}
+
+.dx-datagrid-rowsview .dx-row:hover {
+  background-color: #f5f5f5;
+}
+
+.dx-datagrid-rowsview .dx-row:nth-child(even) {
+  background-color: #fafafa;
+}
+
+/* Celle individuali */
+.dx-datagrid-cell {
+  padding: 12px 8px;
+  vertical-align: middle;
+}
+
+/* Messaggio "No data" */
+.dx-datagrid-nodata {
+  text-align: center;
+  color: #6c757d;
+  font-style: italic;
+  padding: 40px 20px;
+}
+
+/* Responsive per schermi piccoli */
+@media (max-width: 768px) {
+  .registrazioni-container {
+    margin: 10px;
+    padding: 15px;
+  }
+  
+  .registrazioni-container h2 {
+    font-size: 20px;
+  }
+  
+  .dx-datagrid-cell {
+    padding: 8px 6px;
+    font-size: 14px;
+  }
+}
+
+/* Stili per il campo ID (più stretto) */
+.dx-datagrid-cell[aria-describedby*="id"] {
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Stili per il campo email */
+.dx-datagrid-cell[aria-describedby*="email"] {
+  color: #0066cc;
+}
+
+/* Stili per il codice fiscale */
+.dx-datagrid-cell[aria-describedby*="codiceFiscale"] {
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+}

@@ -1,0 +1,34 @@
+<div class="registrazioni-container">
+  
+  <h2>Registrazioni Utenti</h2>
+  
+  <dx-data-grid
+    [dataSource]="registrazioni"
+    [showBorders]="true"
+    [showRowLines]="true"
+    [columnAutoWidth]="true">
+        
+    <dxi-column 
+      dataField="id" 
+      caption="ID"
+      [width]="60">
+    </dxi-column>
+    
+    <dxi-column 
+      dataField="nome" 
+      caption="Nome">
+    </dxi-column>
+    
+    <dxi-column 
+      dataField="cognome" 
+      caption="Cognome">
+    </dxi-column>
+    
+    <dxi-column 
+      dataField="email" 
+      caption="Email">
+    </dxi-column>
+    
+  </dx-data-grid>
+  
+</div>
